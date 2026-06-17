@@ -78,24 +78,30 @@ function CustodyReport({ result }: { result: ChainResult }) {
           certificationText={
             <>
               <strong>Certifica-se</strong>, para os devidos fins de direito, que em{' '}
-              <strong>{new Date().toLocaleString('pt-BR')}</strong> foi consultada a cadeia
-              de custódia da evidência identificada pelo <em>hash</em> SHA-256 indicado neste
-              documento. A consulta retornou <strong>{result.events.length}</strong> evento(s)
-              registrado(s), demonstrando que a evidência permanece íntegra desde sua coleta
-              inicial em{' '}
-              <strong>{new Date(result.capturedAt).toLocaleString('pt-BR')}</strong>.
+              <strong>{new Date().toLocaleString('pt-BR')}</strong> foi consultada a base de
+              registros Trace Hub em busca da evidência identificada pelo <em>hash</em>{' '}
+              SHA-256 indicado neste documento. A consulta{' '}
+              <strong>confirmou a presença do hash</strong> nos registros, com{' '}
+              <strong>{result.events.length}</strong> evento(s) cronologicamente associado(s),
+              cuja primeira ocorrência data de{' '}
+              <strong>{new Date(result.capturedAt).toLocaleString('pt-BR')}</strong>. Esta
+              certificação descreve <em>presença e cronologia</em> dos registros consultados,{' '}
+              <strong>não constituindo, por si só, verificação criptográfica de integridade</strong>{' '}
+              — esta é realizada pelo módulo independente <code>/verificar-evidencia</code>{' '}
+              (recálculo SHA-256, validação RFC 3161 e OpenTimestamps).
             </>
           }
           summaryRows={[
             { label: 'Origem', value: result.source.replace('_', ' ') },
             { label: 'Coletada em', value: new Date(result.capturedAt).toLocaleString('pt-BR') },
             { label: 'Eventos registrados', value: String(result.events.length) },
-            { label: 'Resultado da consulta', value: 'Hash localizado nos registros Trace Hub' },
+            { label: 'Resultado da consulta', value: 'Hash localizado nos registros Trace Hub (verificação criptográfica disponível em /verificar-evidencia)' },
             { label: 'Verificada em', value: new Date().toLocaleString('pt-BR') },
           ]}
           evidenceHash={result.hash}
 
         />
+
 
         <PartSection className="pt-8">
           <PartHeader
@@ -233,7 +239,7 @@ export default function CadeiaCustodia() {
             {
               timestamp: new Date().toISOString(),
               label: 'Consulta pública (timestamp local — não verificado server-side)',
-              detail: 'Hash conferido contra registro central — laudo íntegro',
+              detail: 'Hash localizado nos registros — verificação criptográfica disponível em /verificar-evidencia',
               icon: 'export',
             },
           ],
@@ -243,7 +249,8 @@ export default function CadeiaCustodia() {
             'Emitido em': new Date(report.created_at).toLocaleString('pt-BR'),
           },
         });
-        toast.success('Laudo forense localizado · cadeia íntegra');
+        toast.success('Registros localizados');
+
         return;
       }
 
@@ -286,7 +293,7 @@ export default function CadeiaCustodia() {
         events.push({
           timestamp: new Date().toISOString(),
           label: 'Consulta pública (timestamp local — não verificado server-side)',
-          detail: 'Hash conferido e cadeia de custódia preservada',
+          detail: 'Hash localizado nos registros — verificação criptográfica disponível em /verificar-evidencia',
           icon: 'export',
         });
 
@@ -306,9 +313,10 @@ export default function CadeiaCustodia() {
             'VPN/Proxy': click.is_vpn ? 'Sim' : 'Não',
           },
         });
-        toast.success('Cadeia de custódia recuperada');
+        toast.success('Registros localizados');
         return;
       }
+
 
       const { data: scan } = await (supabase.from('csam_scan_sessions') as any)
         .select('*')
@@ -326,7 +334,7 @@ export default function CadeiaCustodia() {
             ...(scan.finished_at
               ? [{ timestamp: scan.finished_at, label: 'Varredura concluída', detail: `${scan.total_files_scanned} arquivos, ${scan.matches_count} matches`, icon: 'hash' as const }]
               : []),
-            { timestamp: new Date().toISOString(), label: 'Consulta pública (timestamp local — não verificado server-side)', detail: 'Hash da sessão íntegro', icon: 'export' },
+            { timestamp: new Date().toISOString(), label: 'Consulta pública (timestamp local — não verificado server-side)', detail: 'Hash localizado nos registros — verificação criptográfica disponível em /verificar-evidencia', icon: 'export' },
           ],
           metadata: {
             'Caso': scan.case_reference,
@@ -337,7 +345,8 @@ export default function CadeiaCustodia() {
             'Matches': String(scan.matches_count),
           },
         });
-        toast.success('Cadeia recuperada');
+        toast.success('Registros localizados');
+
         return;
       }
 
@@ -381,10 +390,21 @@ export default function CadeiaCustodia() {
 
         {result && <CustodyReport result={result} />}
 
-        <div className="text-[11px] text-muted-foreground border-t pt-3">
-          <strong>Uso processual:</strong> Anexe este documento à petição inicial ou laudo. Demonstra
-          que a evidência não foi adulterada desde a coleta — atende ao art. 158-A do CPP.
+        <div className="text-[11px] text-muted-foreground border-t pt-3 space-y-1">
+          <p>
+            <strong>Uso processual:</strong> Anexe este documento à petição inicial ou laudo
+            como demonstração de <em>presença e cronologia</em> da evidência nos registros
+            Trace Hub (art. 158-A do CPP).
+          </p>
+          <p>
+            <strong>Admissibilidade plena:</strong> a verificação criptográfica independente
+            (recálculo SHA-256, validação RFC 3161 e OpenTimestamps) deve ser apresentada via{' '}
+            <code>/verificar-evidencia</code> ou por CLI{' '}
+            (<code>openssl ts -verify</code>, <code>ots verify</code>,{' '}
+            <code>sha256sum -c</code>).
+          </p>
         </div>
+
       </CardContent>
     </Card>
   );

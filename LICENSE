@@ -1,0 +1,37 @@
+Business Source License 1.1
+
+Licensor:  Trace Hub Tec Inova Simples (I.S.)
+           CNPJ 67.302.275/0001-50
+
+Licensed Work:  Trace Hub Forensic Core
+                The Licensed Work is © 2024–2026 Trace Hub.
+
+Additional Use Grant:
+  You may use the Licensed Work for non-production purposes, academic
+  research, judicial audit, and peer review without limitation.
+  Production use (commercial SaaS, resale, or integration into a
+  product that competes with Trace Hub) requires a separate license
+  from the Licensor.
+
+Change Date:  Four (4) years from the date of each release.
+
+Change License:  Apache License, Version 2.0
+
+Notice:
+  The Business Source License (this document, or the "License") is not
+  an Open Source license. However, the Licensed Work will eventually
+  be made available under the Change License, at which point it
+  becomes fully Open Source.
+
+  For the full text of the Business Source License 1.1, see:
+  https://mariadb.com/bsl11/
+
+  For the full text of Apache License 2.0, see:
+  https://www.apache.org/licenses/LICENSE-2.0
+
+Parameters:
+  Licensor:             Trace Hub Tec Inova Simples (I.S.)
+  Licensed Work:        Trace Hub Forensic Core
+  Additional Use Grant: Non-production, academic, judicial audit, peer review
+  Change Date:          4 years from release
+  Change License:       Apache License 2.0
