@@ -1,5 +1,7 @@
 # Capture Notarial — código-fonte para auditoria independente
 
+Aviso: Este repositório é disponibilizado exclusivamente para auditoria técnica e perícia independente do núcleo forense do TraceHub. A disponibilização do código não autoriza sua reutilização, redistribuição ou exploração comercial, exceto mediante autorização expressa do titular dos direitos autorais.
+
 Este pacote reúne, **sem alterações**, o código-fonte que compõe o módulo
 **Capture Notarial** do Trace Hub (captura de conteúdo web para fins probatórios,
 CPC art. 411, II). O objetivo é permitir que um perito, advogado ou pesquisador
