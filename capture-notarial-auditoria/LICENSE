@@ -1,17 +1,64 @@
-TraceHub Forensic Core – Auditoria Técnica
+TRACEHUB FORENSIC CORE – LICENÇA DE AUDITORIA TÉCNICA
 
-Copyright (c) 2026 TRACE HUB TEC INOVA SIMPLES (I.S.) — CNPJ: 67.302.275/0001-50
+Copyright © 2026 TRACE HUB TEC INOVA SIMPLES (I.S.)
+CNPJ: 67.302.275/0001-50
 
-É concedida permissão para visualizar, baixar e analisar este código-fonte exclusivamente para fins de auditoria técnica, perícia, validação científica, revisão acadêmica e avaliação de segurança.
+1. FINALIDADE
 
-Não é permitida, sem autorização expressa e por escrito do titular dos direitos autorais:
+Este repositório contém parte do núcleo forense do TraceHub e é disponibilizado publicamente exclusivamente para fins de transparência, auditoria técnica, perícia independente, validação científica, revisão acadêmica e avaliação de segurança.
 
-- a utilização comercial;
-- a redistribuição total ou parcial do código;
-- a criação de obras derivadas;
-- a incorporação deste código em outros projetos;
-- a remoção deste aviso de direitos autorais.
+A disponibilização pública do código-fonte não constitui, em nenhuma hipótese, concessão de licença de software livre ou de código aberto (Open Source).
 
-Este repositório é disponibilizado exclusivamente para fins de transparência e auditoria do mecanismo forense do TraceHub e não constitui uma licença de software livre ou de código aberto.
+2. PERMISSÃO LIMITADA
+
+É concedida a terceiros uma permissão limitada, não exclusiva e gratuita para:
+
+- visualizar o código-fonte;
+- baixar uma cópia do código-fonte;
+- executar e testar o código;
+- realizar análises técnicas e de segurança;
+- utilizar o código exclusivamente como objeto de auditoria, perícia, validação científica ou revisão técnica.
+
+3. RESTRIÇÕES
+
+Sem autorização prévia e expressa, por escrito, do titular dos direitos autorais, NÃO é permitido:
+
+- utilizar o código ou qualquer parte dele para fins comerciais;
+- incorporar o código, total ou parcialmente, em outro software ou produto;
+- criar obras ou softwares derivados;
+- copiar, adaptar ou reutilizar componentes do código em outros projetos;
+- redistribuir, publicar ou disponibilizar cópias modificadas ou não modificadas do código;
+- sublicenciar, vender, transferir ou conceder direitos sobre o código a terceiros;
+- remover, ocultar ou alterar os avisos de direitos autorais e de licença.
+
+4. AUDITORIA INDEPENDENTE
+
+A análise, reprodução de testes e avaliação técnica do código para fins de auditoria ou perícia são permitidas.
+
+Resultados, relatórios e conclusões de auditoria podem ser produzidos de forma independente, desde que não impliquem redistribuição ou reutilização do código-fonte protegido por esta licença.
+
+5. PROPRIEDADE INTELECTUAL
+
+Todos os direitos sobre o código-fonte, sua arquitetura, implementação, documentação e demais elementos protegidos permanecem pertencentes aos respectivos titulares.
+
+Nenhuma disposição desta licença deverá ser interpretada como transferência de propriedade intelectual ou concessão de direitos além daqueles expressamente previstos neste documento.
+
+6. AUSÊNCIA DE LICENÇA OPEN SOURCE
+
+Este software não é distribuído sob uma licença Open Source, Free Software ou qualquer outra licença que conceda direitos gerais de uso, modificação e redistribuição.
+
+A disponibilização do código no GitHub tem finalidade exclusiva de transparência e auditoria.
+
+7. AUSÊNCIA DE GARANTIA
+
+O código é disponibilizado para fins de auditoria e análise técnica, sem garantia expressa ou implícita de funcionamento, adequação a finalidade específica ou ausência de falhas.
+
+8. RESERVA DE DIREITOS
+
+Todos os direitos não expressamente concedidos nesta licença permanecem reservados ao titular dos direitos autorais.
 
 Todos os direitos reservados.
+
+TRACE HUB TEC INOVA SIMPLES (I.S.)
+CNPJ: 67.302.275/0001-50
+© 2026
